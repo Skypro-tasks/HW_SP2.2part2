@@ -8,8 +8,19 @@ public class Bicycle extends Vehicle implements Repair {
 
     @Override
     public void check() {
-        super.updateTyre();
+        serviceVehicle();
+        updateTyre();
         System.out.println();
+    }
+
+    public void serviceVehicle(){
+        System.out.println("Обслуживаем велосипед " + super.getModelName());
+    }
+
+    public void updateTyre() {
+        for (int i = 0; i < super.getWheelsCount(); i++) {
+            System.out.println("Меняем покрышку велосипеда");
+        }
     }
 
 }

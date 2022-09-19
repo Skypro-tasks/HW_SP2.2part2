@@ -8,10 +8,26 @@ public class Car extends Vehicle implements Repair {
 
     @Override
     public void check() {
-        super.updateTyre();
-        super.checkEngine();
+        serviceVehicle();
+        updateTyre();
+        checkEngine();
         System.out.println();
     }
+
+    public void serviceVehicle(){
+        System.out.println("Обслуживаем автомобиль " + super.getModelName());
+    }
+
+    public void updateTyre() {
+        for (int i = 0; i < super.getWheelsCount(); i++) {
+            System.out.println("Меняем покрышку автомобиля");
+        }
+    }
+
+    public void checkEngine() {
+        System.out.println("Проверяем двигатель автомобиля");
+    }
+
 
 }
 

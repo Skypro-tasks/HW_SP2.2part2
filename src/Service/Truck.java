@@ -8,10 +8,28 @@ public class Truck extends Vehicle implements Repair {
 
     @Override
     public void check() {
-        super.updateTyre();
-        super.checkEngine();
-        super.checkTrailer();
+        serviceVehicle();
+        updateTyre();
+        checkEngine();
+        checkTrailer();
         System.out.println();
+    }
+
+    public void serviceVehicle(){
+        System.out.println("Обслуживаем грузовик " + super.getModelName());
+    }
+    public void updateTyre() {
+        for (int i = 0; i < super.getWheelsCount(); i++) {
+            System.out.println("Меняем покрышку грузовика");
+        }
+    }
+
+    public void checkEngine() {
+        System.out.println("Проверяем двигатель грузовика");
+    }
+
+    public void checkTrailer() {
+        System.out.println("Проверяем прицеп грузовика");
     }
 
 }
