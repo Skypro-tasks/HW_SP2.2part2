@@ -1,19 +1,35 @@
 package Service;
 
-public class Truck {
+public class Truck extends Vehicle implements Repair {
 
-    public String modelName;
-    public int wheelsCount;
+    public Truck(String modelName, int wheelsCount) {
+        super(modelName, wheelsCount);
+    }
 
+    @Override
+    public void check() {
+        serviceVehicle();
+        updateTyre();
+        checkEngine();
+        checkTrailer();
+        System.out.println();
+    }
+
+    public void serviceVehicle(){
+        System.out.println("Обслуживаем грузовик " + super.getModelName());
+    }
     public void updateTyre() {
-        System.out.println("Меняем покрышку");
+        for (int i = 0; i < super.getWheelsCount(); i++) {
+            System.out.println("Меняем покрышку грузовика");
+        }
     }
 
     public void checkEngine() {
-        System.out.println("Проверяем двигатель");
+        System.out.println("Проверяем двигатель грузовика");
     }
 
     public void checkTrailer() {
-        System.out.println("Проверяем прицеп");
+        System.out.println("Проверяем прицеп грузовика");
     }
+
 }
